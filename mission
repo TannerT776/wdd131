@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission Statement</title>
+  <meta name="description" content="Mission Statement for WDD 131">
+  <link rel="stylesheet" href="styles/mission.css">
+</head>
+
+<body>
+  <header>
+    <h1>Mission Statement</h1>
+    <p class="subtitle">WDD 131 – Dynamic Web Fundamentals</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Our Mission</h2>
+      <p>
+        The mission of this website is to demonstrate foundational skills in
+        HTML, CSS, and JavaScript by creating clean, accessible, and well-structured
+        web content. This project emphasizes semantic HTML, thoughtful styling,
+        and professional development practices.
+      </p>
+    </section>
+
+    <section>
+      <h2>Goals</h2>
+      <ul>
+        <li>Use semantic HTML elements correctly</li>
+        <li>Apply CSS for layout and design</li>
+        <li>Write clean, readable, and maintainable code</li>
+        <li>Publish content using GitHub Pages</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Tanner Tinsley | WDD 131</p>
+  </footer>
+</body>
+</html>
