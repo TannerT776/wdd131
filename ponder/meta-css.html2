@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- REQUIRED for responsive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Responsive Design Practice</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    section {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    /* MEDIA QUERY */
+    @media (min-width: 600px) {
+      main {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      main {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Responsive Web Design</h1>
+    <p>Resize the browser to see layout changes</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Section 1</h2>
+      <p>This layout adapts to screen size.</p>
+    </section>
+
+    <section>
+      <h2>Section 2</h2>
+      <p>Media queries control the grid.</p>
+    </section>
+
+    <section>
+      <h2>Section 3</h2>
+      <p>Mobile-first design approach.</p>
+    </section>
+  </main>
+
+</body>
+</html>
