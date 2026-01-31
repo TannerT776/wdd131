@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Meta tags (Part 1) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practice with meta tags and CSS selectors">
+  <meta name="author" content="Tanner Tinsley">
+
+  <title>Meta Tags and CSS Selectors</title>
+
+  <style>
+    /* ELEMENT SELECTOR */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+    }
+
+    /* CLASS SELECTOR */
+    .highlight {
+      color: #0056b3;
+      font-weight: bold;
+    }
+
+    /* ID SELECTOR */
+    #main-title {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    /* DESCENDANT SELECTOR */
+    section p {
+      line-height: 1.6;
+    }
+
+    /* ATTRIBUTE SELECTOR */
+    a[target="_blank"] {
+      color: darkred;
+    }
+
+    /* PSEUDO-CLASS */
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 id="main-title">Meta Tags & CSS Selectors</h1>
+
+  <section>
+    <p>
+      This paragraph demonstrates <span class="highlight">CSS selectors</span>
+      and how styles are applied using different selector types.
+    </p>
+
+    <p>
+      Meta tags help control page behavior on different devices and improve
+      accessibility and SEO.
+    </p>
+  </section>
+
+  <p>
+    Visit
+    <a href="https://developer.mozilla.org" target="_blank">
+      MDN Web Docs
+    </a>
+    to learn more.
+  </p>
+
+</body>
+</html>
