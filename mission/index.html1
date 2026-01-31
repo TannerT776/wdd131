@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mission Statement</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>My Mission Statement</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="subtitle">Who I Want to Become</h2>
+      <p>
+        My mission is to live with integrity, grow spiritually, and serve others
+        through Christlike love, consistent effort, and lifelong learning.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="subtitle">How I Will Live</h2>
+      <p>
+        I will strive to develop discipline, seek meaningful relationships, and
+        use my talents to bless others while continually improving myself.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Tanner Tinsley</p>
+  </footer>
+</body>
+</html>
