@@ -1,6 +1,6 @@
 // VARIABLES (can change)
 let firstName = "Tanner";
-let age = 22;
+let age = 25;
 
 // CONSTANTS (cannot change)
 const school = "BYU-Idaho";
