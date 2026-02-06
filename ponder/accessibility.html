@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Accessibility and CSS Grid practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility and Grid</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: grid;
+      grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+      gap: 1rem;
+    }
+
+    header {
+      grid-area: header;
+      background: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      grid-area: nav;
+      background: #eee;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    main {
+      grid-area: main;
+      padding: 1rem;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Accessible Web Page</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Welcome</h2>
+      <p>This page demonstrates semantic HTML, accessibility, and CSS grid layout.</p>
+      <img src="https://via.placeholder.com/600x300" alt="Sample placeholder image showing layout example">
+    </section>
+
+    <section>
+      <h2>Accessibility Features</h2>
+      <ul>
+        <li>Semantic HTML elements</li>
+        <li>Proper heading structure</li>
+        <li>Alt text for images</li>
+        <li>Clear navigation links</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Tanner Tinsley</p>
+  </footer>
+
+</body>
+</html>
