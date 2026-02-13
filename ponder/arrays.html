@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Array methods practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Methods Practice</title>
+</head>
+<body>
+  <h1>Array Methods</h1>
+
+  <script>
+    // Original array
+    const numbers = [1, 2, 3, 4, 5];
+
+    console.log("Original:", numbers);
+
+    // map() – create a new array with values doubled
+    const doubled = numbers.map(num => num * 2);
+    console.log("Doubled:", doubled);
+
+    // filter() – keep only even numbers
+    const evens = numbers.filter(num => num % 2 === 0);
+    console.log("Evens:", evens);
+
+    // reduce() – add all numbers together
+    const sum = numbers.reduce((total, num) => total + num, 0);
+    console.log("Sum:", sum);
+
+    // find() – find first number greater than 3
+    const firstGreaterThanThree = numbers.find(num => num > 3);
+    console.log("First > 3:", firstGreaterThanThree);
+  </script>
+</body>
+</html>
