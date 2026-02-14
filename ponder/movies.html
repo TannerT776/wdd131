@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Dynamic content with JavaScript">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Movies</title>
+</head>
+<body>
+  <h1>My Favorite Movies</h1>
+
+  <ul id="movieList"></ul>
+
+  <script>
+    // Array of movie titles
+    const movies = [
+      "The Lord of the Rings",
+      "Inception",
+      "Interstellar",
+      "The Dark Knight",
+      "Spider-Man: Into the Spider-Verse"
+    ];
+
+    // Select the list in HTML
+    const movieList = document.getElementById("movieList");
+
+    // Loop through movies and add them to the page
+    movies.forEach(movie => {
+      const li = document.createElement("li");
+      li.textContent = movie;
+      movieList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
