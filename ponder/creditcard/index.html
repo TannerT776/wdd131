@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Credit Card Form">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="container">
+
+    <div class="card-wrapper">
+
+      <!-- Card Front -->
+      <div class="card front">
+        <p class="card-number">1234 5678 9012 3456</p>
+        <div class="card-details">
+          <span>Card Holder</span>
+          <span>MM/YY</span>
+        </div>
+      </div>
+
+      <!-- Card Back -->
+      <div class="card back">
+        <div class="stripe"></div>
+        <p class="cvv">CVV</p>
+      </div>
+
+    </div>
+
+    <!-- Form -->
+    <form>
+      <label>
+        Card Number
+        <input type="text" required maxlength="19" pattern="[0-9 ]{16,19}">
+      </label>
+
+      <label>
+        Card Holder
+        <input type="text" required>
+      </label>
+
+      <label>
+        Expiration Date
+        <input type="month" required>
+      </label>
+
+      <label>
+        CVV
+        <input type="text" required maxlength="4" pattern="[0-9]{3,4}">
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </main>
+
+</body>
+</html>
