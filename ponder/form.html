@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Working with Forms Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Practice</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://favicon.cc/logo3d/63585.png" type="image/png">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+    }
+
+    form {
+      max-width: 400px;
+      display: grid;
+      gap: 1rem;
+    }
+
+    input, select, textarea, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Contact Form</h1>
+
+  <form id="contactForm" novalidate>
+    
+    <label>
+      Name (required):
+      <input type="text" id="name" required>
+    </label>
+
+    <label>
+      Email (required):
+      <input type="email" id="email" required>
+    </label>
+
+    <label>
+      Favorite Genre (optional):
+      <select id="genre">
+        <option value="">--Select--</option>
+        <option>Fantasy</option>
+        <option>Sci-Fi</option>
+        <option>Mystery</option>
+      </select>
+    </label>
+
+    <label>
+      Comments (optional):
+      <textarea id="comments"></textarea>
+    </label>
+
+    <button type="submit">Submit</button>
+
+    <p id="errorMessage" class="error"></p>
+
+  </form>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const errorMessage = document.getElementById("errorMessage");
+
+    form.addEventListener("submit", function(event) {
+      errorMessage.textContent = "";
+
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        errorMessage.textContent = "Please fill out all required fields correctly.";
+      } else {
+        alert("Form submitted successfully!");
+      }
+    });
+  </script>
+
+</body>
+</html>
