@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="JavaScript Objects Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Objects Practice</title>
+</head>
+<body>
+
+  <h1>Course List</h1>
+
+  <ul id="courseList"></ul>
+
+  <script>
+    // Object examples
+    const course1 = {
+      title: "Introduction to HTML",
+      instructor: "Alice Smith",
+      duration: "4 weeks"
+    };
+
+    const course2 = {
+      title: "CSS Fundamentals",
+      instructor: "Bob Johnson",
+      duration: "6 weeks"
+    };
+
+    const course3 = {
+      title: "JavaScript Basics",
+      instructor: "Charlie Davis",
+      duration: "8 weeks"
+    };
+
+    // Put objects into an array
+    const courses = [course1, course2, course3];
+
+    // Select the list in HTML
+    const courseList = document.getElementById("courseList");
+
+    // Loop through the courses array
+    courses.forEach(course => {
+      const li = document.createElement("li");
+      li.textContent = `${course.title} - Instructor: ${course.instructor} (${course.duration})`;
+      courseList.appendChild(li);
+    });
+  </script>
+
+</body>
+</html>
