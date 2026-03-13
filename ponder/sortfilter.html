@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Sort and Filter Practice">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sort and Filter</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+
+    button {
+      margin-right: 10px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Sort and Filter Example</h1>
+
+<button onclick="showAll()">Show All</button>
+<button onclick="filterLevel()">Filter Level > 2</button>
+<button onclick="sortLevels()">Sort by Level</button>
+
+<ul id="characterList"></ul>
+
+<script>
+
+// Array of objects
+const characters = [
+  { name: "Warrior", level: 4 },
+  { name: "Mage", level: 2 },
+  { name: "Rogue", level: 5 },
+  { name: "Cleric", level: 1 }
+];
+
+function display(list) {
+  const ul = document.getElementById("characterList");
+  ul.innerHTML = "";
+
+  list.forEach(character => {
+    const li = document.createElement("li");
+    li.textContent = `${character.name} - Level ${character.level}`;
+    ul.appendChild(li);
+  });
+}
+
+// Show original list
+function showAll() {
+  display(characters);
+}
+
+// Filter example
+function filterLevel() {
+  const filtered = characters.filter(c => c.level > 2);
+  display(filtered);
+}
+
+// Sort example
+function sortLevels() {
+  const sorted = [...characters].sort((a, b) => a.level - b.level);
+  display(sorted);
+}
+
+// initial display
+display(characters);
+
+</script>
+
+</body>
+</html>
