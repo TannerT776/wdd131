@@ -1,44 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Recipe Book">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recipe Book</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="description" content="Recipe Book">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Book</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <header>
-  <h1>My Recipe Book</h1>
+<h1>Recipe Book</h1>
+
+<input
+id="search"
+type="text"
+placeholder="Search recipes..."
+>
+
 </header>
 
-<main class="recipe-container">
-
-  <article class="recipe-card">
-    <img src="https://images.unsplash.com/photo-1604908176997-4317c3c6c7d2" alt="Pancakes">
-    <h2>Fluffy Pancakes</h2>
-    <p>A quick and delicious breakfast recipe.</p>
-  </article>
-
-  <article class="recipe-card">
-    <img src="https://images.unsplash.com/photo-1605475129011-bc2b59a4e90e" alt="Spaghetti">
-    <h2>Classic Spaghetti</h2>
-    <p>A traditional pasta dish with rich tomato sauce.</p>
-  </article>
-
-  <article class="recipe-card">
-    <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="Salad">
-    <h2>Fresh Garden Salad</h2>
-    <p>A light and healthy salad with seasonal vegetables.</p>
-  </article>
-
-</main>
+<main id="recipeContainer"></main>
 
 <footer>
-  <p>&copy; 2026 Tanner Tinsley</p>
+<p>&copy; 2026 Tanner Tinsley</p>
 </footer>
+
+<script src="recipes.js"></script>
 
 </body>
 </html>
