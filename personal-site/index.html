@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Office Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
 
+<body>
+
+<h1>Interactive Developer Office</h1>
+
+<div id="game">
+
+<div id="player"></div>
+
+<div class="object" id="computer">💻</div>
+<div class="object" id="cabinet">🗄</div>
+<div class="object" id="recipes">🍳</div>
+<div class="object" id="tracker">🐞</div>
+
+</div>
+
+<div id="modal" class="hidden">
+<div id="modal-content"></div>
+<button onclick="closeModal()">Close</button>
+</div>
+
+<script src="data.js"></script>
+<script src="ui.js"></script>
+<script src="game.js"></script>
+
+</body>
+</html>
