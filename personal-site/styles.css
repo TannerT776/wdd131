@@ -1,0 +1,51 @@
+body {
+font-family: Arial;
+text-align: center;
+background: #222;
+color: white;
+}
+
+#game {
+width: 600px;
+height: 400px;
+margin: auto;
+position: relative;
+background: #444;
+border: 3px solid white;
+}
+
+#player {
+width: 40px;
+height: 40px;
+background: yellow;
+position: absolute;
+top: 180px;
+left: 280px;
+}
+
+.object {
+position: absolute;
+font-size: 30px;
+cursor: pointer;
+}
+
+#computer { top: 20px; left: 20px; }
+#cabinet { top: 20px; right: 20px; }
+#recipes { bottom: 20px; left: 20px; }
+#tracker { bottom: 20px; right: 20px; }
+
+#modal {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: white;
+color: black;
+padding: 20px;
+border-radius: 10px;
+width: 300px;
+}
+
+.hidden {
+display: none;
+}
