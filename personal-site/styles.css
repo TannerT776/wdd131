@@ -17,20 +17,34 @@ background: #5c5c5c;
 
 /* player */
 
-.dallas-sprite {
-width: 64px;
-height: 64px;
-background-image: url('dallas_spritesheet.png');
-background-repeat: no-repeat;
-image-rendering: pixelated;
-
-animation: walk-east 0.8s steps(4) infinite;
+/* The Dallas Character Container */
+.dallas-character {
+    width: 64px; 
+    height: 64px;
+    background-image: url('dallas_spritesheet.png');
+    background-repeat: no-repeat;
+    
+    /* The Zoom: 4 frames at 64px each = 256px wide */
+    background-size: 256px 64px; 
+    
+    /* Keeps the 8-bit look sharp */
+    image-rendering: pixelated; 
+    
+    /* Position him relative to the game/office container */
+    position: absolute; 
+    z-index: 10;
 }
 
-@keyframes walk-east {
-from { background-position: 0px; }
-to { background-position: -256px; }
+/* The Walking Animation */
+.walking {
+    animation: walk-cycle 0.8s steps(4) infinite;
 }
+
+@keyframes walk-cycle {
+    from { background-position: 0px; }
+    to { background-position: -256px; }
+}
+
 
 /* objects */
 
