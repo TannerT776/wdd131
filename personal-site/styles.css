@@ -28,18 +28,18 @@ body {
 .dallas-sprite {
     width: 64px; 
     height: 64px;
-    background-image: url('../dallas_spritesheet.png'); 
+    background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* ZOOM OUT: 
-       Lowering this to 200px makes Dallas smaller so his whole body fits. */
-    background-size: 220px auto; 
-
-    /* POSITION: 
-       -5px (X) to center him.
-       -95px (Y) to push the "8 bit" text UP. 
-       If you still see the text, change -95px to -105px. */
-    background-position: -5px -95px; 
+    /* We keep the horizontal zoom at 300px to keep him large */
+    background-size: 300px auto; 
+    
+    /* THE FIX:
+       -5px (X) centers him.
+       -115px (Y) pushes the '8 bit' text UP and out of the box.
+       If you still see the text, change -115px to -125px. 
+    */
+    background-position: -5px -115px; 
 
     image-rendering: pixelated; 
     position: absolute; 
@@ -47,18 +47,11 @@ body {
     transition: transform 0.1s ease-out;
 }
 
-/* --- THE WALKING ANIMATION --- */
-
-.walking {
-    animation: walk-cycle 0.8s steps(4) infinite;
-}
-
+/* Update the Walk-Cycle to match the new height */
 @keyframes walk-cycle {
-    /* Horizontal: Moves 200px across (-5 + -200 = -205)
-       Vertical: MUST stay at -95px so he doesn't jump! */
-    from { background-position: -5px -95px; }
-    to { background-position: -225px -115px; }
-}
+    /* We MUST keep the same -115px here so he doesn't jump */
+    from { background-position: -5px -115px; }
+    to { background-position: -305px -115px; }
 /* --- OFFICE OBJECTS --- */
 
 .object {
