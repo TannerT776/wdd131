@@ -30,21 +30,18 @@ body {
 
 /* Changed from .dallas-character to .dallas-sprite to match your HTML */
 .dallas-sprite {
-    /* The 'Window' size - stay at 64px */
     width: 64px; 
     height: 64px;
-    
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* THE FIX: We force the sheet to be 256px wide. 
-       If you still see words, it means the sheet is taller than 64px. 
-       We set height to 'auto' to maintain the image's proportions 
-       while forcing the width to match our 4-frame math. */
-    background-size: 256px auto; 
+    /* ZOOMING IN: 
+       By increasing this from 256 to 300, the frames get bigger.
+       We use 'auto' for height so the image doesn't get squashed. */
+    background-size: 300px auto; 
     
-    /* This ensures we only see the very top-left 64x64 pixels */
-    background-position: 0px 0px; 
+    /* Nudge the starting position to center him if he's cut off */
+    background-position: -5px 0px; 
 
     image-rendering: pixelated; 
     position: absolute; 
@@ -54,14 +51,13 @@ body {
 
 /* The Walking Animation */
 .walking {
-    /* 'steps(4)' is what makes it jump frame-to-frame */
+    /* If we zoomed to 300px, the total 'jump' distance must match */
     animation: walk-cycle 0.8s steps(4) infinite;
 }
 
 @keyframes walk-cycle {
-    from { background-position: 0px 0px; }
-    /* We move the 'conveyor belt' left by 256px */
-    to { background-position: -256px 0px; }
+    from { background-position: -5px 0px; }
+    to { background-position: -305px 0px; } /* -5 starting point + -300 width */
 }
 
 /* --- OFFICE OBJECTS --- */
