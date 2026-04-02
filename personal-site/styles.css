@@ -6,33 +6,61 @@ color: white;
 }
 
 #game {
-width: 600px;
-height: 400px;
+width: 700px;
+height: 450px;
 margin: auto;
 position: relative;
-background: #444;
 border: 3px solid white;
+overflow: hidden;
+
+/* office background */
+background:
+#6b6b6b;
 }
+
+/* desk areas */
+
+#computer { top: 40px; left: 40px; }
+#cabinet { top: 40px; right: 40px; }
+#recipes { bottom: 40px; left: 40px; }
+#tracker { bottom: 40px; right: 40px; }
 
 #player {
 width: 40px;
 height: 40px;
 background: yellow;
 position: absolute;
-top: 180px;
-left: 280px;
+top: 200px;
+left: 320px;
+border-radius: 5px;
 }
+
+/* minimap */
+
+#minimap {
+position: absolute;
+top: 10px;
+right: 10px;
+width: 140px;
+height: 90px;
+background: #111;
+border: 2px solid white;
+}
+
+#mini-player {
+width: 6px;
+height: 6px;
+background: yellow;
+position: absolute;
+}
+
+/* objects */
 
 .object {
 position: absolute;
-font-size: 30px;
+font-size: 32px;
 cursor: pointer;
 }
-
-#computer { top: 20px; left: 20px; }
-#cabinet { top: 20px; right: 20px; }
-#recipes { bottom: 20px; left: 20px; }
-#tracker { bottom: 20px; right: 20px; }
 
 #modal {
 position: fixed;
@@ -43,7 +71,8 @@ background: white;
 color: black;
 padding: 20px;
 border-radius: 10px;
-width: 300px;
+width: 350px;
+z-index: 100;
 }
 
 .hidden {
