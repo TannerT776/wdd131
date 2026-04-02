@@ -35,23 +35,36 @@ body {
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* 1. THE ZOOM (Horizontal Scale)
-       By setting this to 256px, we fit 4 frames of 64px perfectly. 
-       If he looks too small, we can bump this to 280px later. */
+    /* 1. Reset Zoom to a standard 256px */
     background-size: 256px auto; 
 
-    /* 2. THE CROP (Vertical & Horizontal Position)
-       -10px (X) centers his body in the box.
-       -160px (Y) slides the image UP to hide the "8 bit" text. 
-       Adjust this -160px if you still see the letters! */
-    background-position: -10px -160px; 
+    /* 2. THE CROP:
+       -5px (X) to center him.
+       -100px (Y) to start. If you see the TOP of his head, 
+       increase this to -110, -120, etc. until the words disappear.
+    */
+    background-position: -5px -100px; 
 
     image-rendering: pixelated; 
     position: absolute; 
     z-index: 10;
-    
-    /* This makes the flip (scaleX) look smooth when turning */
     transition: transform 0.1s ease-out;
+}
+
+/* --- THE WALKING ANIMATION --- */
+@keyframes walk-cycle {
+    /* MUST match the -5px -100px above */
+    from { 
+        background-position: -5px -100px; 
+    }
+    /* Moves 256px to the left (-5 + -256 = -261) */
+    to { 
+        background-position: -261px -100px; 
+    }
+}
+
+.walking {
+    animation: walk-cycle 0.8s steps(4) infinite;
 }
 
 /* --- THE WALKING ANIMATION --- */
