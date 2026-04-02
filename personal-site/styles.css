@@ -35,13 +35,14 @@ body {
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* ZOOMING IN: 
-       By increasing this from 256 to 300, the frames get bigger.
-       We use 'auto' for height so the image doesn't get squashed. */
+    /* Keep the horizontal zoom at 300px to keep him large */
     background-size: 300px auto; 
     
-    /* Nudge the starting position to center him if he's cut off */
-    background-position: -5px 0px; 
+    /* THE FIX: 
+       First number (X) is -5px to center him horizontally.
+       Second number (Y) is -40px to hide the words ABOVE him. 
+       Adjust -40px higher or lower until the words vanish! */
+    background-position: -5px -40px; 
 
     image-rendering: pixelated; 
     position: absolute; 
@@ -49,15 +50,11 @@ body {
     transition: transform 0.1s ease-out;
 }
 
-/* The Walking Animation */
-.walking {
-    /* If we zoomed to 300px, the total 'jump' distance must match */
-    animation: walk-cycle 0.8s steps(4) infinite;
-}
-
+/* Update the Walk-Cycle to maintain the vertical shift */
 @keyframes walk-cycle {
-    from { background-position: -5px 0px; }
-    to { background-position: -305px 0px; } /* -5 starting point + -300 width */
+    /* We must keep the same -40px Y-position here so he doesn't jump up/down */
+    from { background-position: -5px -40px; }
+    to { background-position: -305px -40px; }
 }
 
 /* --- OFFICE OBJECTS --- */
