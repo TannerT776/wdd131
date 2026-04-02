@@ -35,14 +35,14 @@ body {
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* Keep the horizontal zoom at 300px to keep him large */
-    background-size: 300px auto; 
-    
-    /* THE FIX: 
-       First number (X) is -5px to center him horizontally.
-       Second number (Y) is -40px to hide the words ABOVE him. 
-       Adjust -40px higher or lower until the words vanish! */
-    background-position: -5px -40px; 
+    /* We zoom the sheet so the character fills the 64px box */
+    background-size: 320px auto; 
+
+    /* THE PRECISION CROP:
+       -10px (X) slides the image LEFT to hide words on the left.
+       -175px (Y) slides the image UP to hide "8 bit" and words above.
+    */
+    background-position: -10px -175px; 
 
     image-rendering: pixelated; 
     position: absolute; 
@@ -50,11 +50,12 @@ body {
     transition: transform 0.1s ease-out;
 }
 
-/* Update the Walk-Cycle to maintain the vertical shift */
+/* The Walking Animation */
 @keyframes walk-cycle {
-    /* We must keep the same -40px Y-position here so he doesn't jump up/down */
-    from { background-position: -5px -40px; }
-    to { background-position: -305px -40px; }
+    /* Horizontal: Starts at -10px, moves 320px (total -330px)
+       Vertical: MUST stay at -175px exactly so he doesn't jump */
+    from { background-position: -10px -175px; }
+    to { background-position: -330px -175px; }
 }
 
 /* --- OFFICE OBJECTS --- */
