@@ -28,19 +28,18 @@ body {
 .dallas-sprite {
     width: 64px; 
     height: 64px;
-    
-    /* THE FIX: Added ../ to look outside the css folder */
     background-image: url('../dallas_spritesheet.png'); 
-    
     background-repeat: no-repeat;
     
-    /* ZOOM: 256px is the perfect width for a 4-frame 64px strip */
-    background-size: 256px auto; 
+    /* ZOOM OUT: 
+       Lowering this to 200px makes Dallas smaller so his whole body fits. */
+    background-size: 200px auto; 
 
     /* POSITION: 
-       -10px (X) to center the body.
-       -140px (Y) to hide the "8 bit" text above his head. */
-    background-position: -10px -140px; 
+       -5px (X) to center him.
+       -95px (Y) to push the "8 bit" text UP. 
+       If you still see the text, change -95px to -105px. */
+    background-position: -5px -95px; 
 
     image-rendering: pixelated; 
     position: absolute; 
@@ -55,16 +54,11 @@ body {
 }
 
 @keyframes walk-cycle {
-    /* Vertical coordinate (-140px) MUST match the one above */
-    from { 
-        background-position: -10px -140px; 
-    }
-    /* Moves left by the full 256px width (-10 + -256 = -266) */
-    to { 
-        background-position: -266px -140px; 
-    }
+    /* Horizontal: Moves 200px across (-5 + -200 = -205)
+       Vertical: MUST stay at -95px so he doesn't jump! */
+    from { background-position: -5px -95px; }
+    to { background-position: -205px -95px; }
 }
-
 /* --- OFFICE OBJECTS --- */
 
 .object {
