@@ -1,5 +1,5 @@
 body {
-    font-family: 'Courier New', Courier, monospace; /* Changed for a more "hacker/dev" vibe */
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
     background: #1a1a1a;
     color: white;
@@ -14,35 +14,31 @@ body {
     position: relative;
     border: 4px solid #444;
     overflow: hidden;
-    
-    /* Create a "Retro Carpet" pattern using CSS gradients */
     background-color: #353535;
     background-image:  
         radial-gradient(#444 1px, transparent 1px), 
         radial-gradient(#444 1px, #353535 1px);
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
-    
     box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
 }
 
 /* --- THE DALLAS PLAYER --- */
 
-/* Changed from .dallas-character to .dallas-sprite to match your HTML */
 .dallas-sprite {
     width: 64px; 
     height: 64px;
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* 1. THE "RESCUE": 
-       This forces the image to fill the 64px box so he CANNOT be off-screen. */
-    background-size: 400% auto; 
+    /* ZOOM: Adjusted to keep his whole body in the 64px box */
+    background-size: 256px auto; 
 
-    /* 2. THE ALIGNMENT:
-       Let's start at 0 0. This should show the very top-left of your sheet.
-       If you see Dallas but he's cut off, we will nudge these numbers. */
-    background-position: 0% 0%; 
+    /* POSITION: 
+       -10px centers him. 
+       -120px pushes the "8 bit" text up. 
+       If he's still invisible or text shows, tweak this -120px! */
+    background-position: -10px -120px; 
 
     image-rendering: pixelated; 
     position: absolute; 
@@ -50,47 +46,17 @@ body {
     transition: transform 0.1s ease-out;
 }
 
-/* --- THE WALKING ANIMATION --- */
-@keyframes walk-cycle {
-    /* We move by percentages now, which is safer for different sheet sizes */
-    from { 
-        background-position: 0% 0%; 
-    }
-    to { 
-        background-position: 100% 0%; 
-    }
-}
+/* --- THE WALKING ANIMATION (One single version) --- */
 
 .walking {
-    /* 4 steps for the 4 frames */
     animation: walk-cycle 0.8s steps(4) infinite;
 }
 
-/* --- THE WALKING ANIMATION --- */
-
 @keyframes walk-cycle {
-    /* 'from' must match the background-position above exactly */
-    from { 
-        background-position: -10px -160px; 
-    }
-    /* 'to' moves the strip left by the total width (256px) 
-       -10 starting + -256 move = -266px total */
-    to { 
-        background-position: -266px -160px; 
-    }
-}
-
-.walking {
-    /* 'steps(4)' makes the frames jump instead of sliding */
-    animation: walk-cycle 0.8s steps(4) infinite;
-}
-
-/* The Walking Animation */
-@keyframes walk-cycle {
-    /* Horizontal: Starts at -10px, moves 240px (total -250px)
-       Vertical: MUST stay at -145px so he doesn't jump! */
-    from { background-position: -10px -145px; }
-    to { background-position: -250px -145px; }
+    /* Horizontal: Moves 256px across. 
+       Vertical: MUST match the -120px above exactly. */
+    from { background-position: -10px -120px; }
+    to { background-position: -266px -120px; }
 }
 
 /* --- OFFICE OBJECTS --- */
@@ -98,7 +64,6 @@ body {
 .object {
     position: absolute;
     font-size: 40px;
-    /* This ensures objects can be layered */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,7 +73,7 @@ body {
 }
 
 .object:hover {
-    filter: brightness(1.5); /* Visual feedback for interactivity */
+    filter: brightness(1.5);
 }
 
 #computer { top: 60px; left: 80px; }
@@ -124,7 +89,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.8);
-    color: #00ff00; /* Heist Green */
+    color: #00ff00;
     padding: 8px 15px;
     border: 1px solid #00ff00;
     border-radius: 4px;
@@ -150,7 +115,7 @@ body {
 #mini-player {
     width: 8px;
     height: 8px;
-    background: #00ff00; /* Green dot matches Dallas's mask theme */
+    background: #00ff00;
     position: absolute;
     border-radius: 50%;
 }
