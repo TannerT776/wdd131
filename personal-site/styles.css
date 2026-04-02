@@ -28,17 +28,19 @@ body {
 .dallas-sprite {
     width: 64px; 
     height: 64px;
-    background-image: url('dallas_spritesheet.png');
+    
+    /* THE FIX: Added ../ to look outside the css folder */
+    background-image: url('../dallas_spritesheet.png'); 
+    
     background-repeat: no-repeat;
     
-    /* ZOOM: Adjusted to keep his whole body in the 64px box */
+    /* ZOOM: 256px is the perfect width for a 4-frame 64px strip */
     background-size: 256px auto; 
 
     /* POSITION: 
-       -10px centers him. 
-       -120px pushes the "8 bit" text up. 
-       If he's still invisible or text shows, tweak this -120px! */
-    background-position: -10px -120px; 
+       -10px (X) to center the body.
+       -140px (Y) to hide the "8 bit" text above his head. */
+    background-position: -10px -140px; 
 
     image-rendering: pixelated; 
     position: absolute; 
@@ -46,17 +48,21 @@ body {
     transition: transform 0.1s ease-out;
 }
 
-/* --- THE WALKING ANIMATION (One single version) --- */
+/* --- THE WALKING ANIMATION --- */
 
 .walking {
     animation: walk-cycle 0.8s steps(4) infinite;
 }
 
 @keyframes walk-cycle {
-    /* Horizontal: Moves 256px across. 
-       Vertical: MUST match the -120px above exactly. */
-    from { background-position: -10px -120px; }
-    to { background-position: -266px -120px; }
+    /* Vertical coordinate (-140px) MUST match the one above */
+    from { 
+        background-position: -10px -140px; 
+    }
+    /* Moves left by the full 256px width (-10 + -256 = -266) */
+    to { 
+        background-position: -266px -140px; 
+    }
 }
 
 /* --- OFFICE OBJECTS --- */
@@ -87,69 +93,4 @@ body {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: #00ff00;
-    padding: 8px 15px;
-    border: 1px solid #00ff00;
-    border-radius: 4px;
-    display: none;
-    font-weight: bold;
-    z-index: 50;
-}
-
-/* --- MINIMAP --- */
-
-#minimap {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 140px;
-    height: 90px;
-    background: #000;
-    border: 2px solid #555;
-    opacity: 0.8;
-    z-index: 100;
-}
-
-#mini-player {
-    width: 8px;
-    height: 8px;
-    background: #00ff00;
-    position: absolute;
-    border-radius: 50%;
-}
-
-/* --- MODAL --- */
-
-#modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    color: #222;
-    padding: 30px;
-    border-radius: 8px;
-    width: 400px;
-    z-index: 1000;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-}
-
-.hidden {
-    display: none;
-}
-
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #222;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-button:hover {
-    background: #444;
-}
+    transform
