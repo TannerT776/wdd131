@@ -30,32 +30,38 @@ body {
 
 /* Changed from .dallas-character to .dallas-sprite to match your HTML */
 .dallas-sprite {
+    /* The 'Window' size - stay at 64px */
     width: 64px; 
     height: 64px;
+    
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* Forces the 4-frame strip to fit into a 256px wide space */
-    background-size: 256px 64px; 
+    /* THE FIX: We force the sheet to be 256px wide. 
+       If you still see words, it means the sheet is taller than 64px. 
+       We set height to 'auto' to maintain the image's proportions 
+       while forcing the width to match our 4-frame math. */
+    background-size: 256px auto; 
     
-    /* Essential for 8-bit art sharp edges */
+    /* This ensures we only see the very top-left 64x64 pixels */
+    background-position: 0px 0px; 
+
     image-rendering: pixelated; 
-    
     position: absolute; 
     z-index: 10;
-    
-    /* Smoothly flips the character when turning Left/Right */
     transition: transform 0.1s ease-out;
 }
 
-/* The Walking Animation (Triggered by game.js) */
+/* The Walking Animation */
 .walking {
+    /* 'steps(4)' is what makes it jump frame-to-frame */
     animation: walk-cycle 0.8s steps(4) infinite;
 }
 
 @keyframes walk-cycle {
-    from { background-position: 0px; }
-    to { background-position: -256px; }
+    from { background-position: 0px 0px; }
+    /* We move the 'conveyor belt' left by 256px */
+    to { background-position: -256px 0px; }
 }
 
 /* --- OFFICE OBJECTS --- */
