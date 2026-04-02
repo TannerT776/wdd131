@@ -33,7 +33,7 @@ body {
     
     /* ZOOM OUT: 
        Lowering this to 200px makes Dallas smaller so his whole body fits. */
-    background-size: 200px auto; 
+    background-size: 220px auto; 
 
     /* POSITION: 
        -5px (X) to center him.
@@ -57,7 +57,7 @@ body {
     /* Horizontal: Moves 200px across (-5 + -200 = -205)
        Vertical: MUST stay at -95px so he doesn't jump! */
     from { background-position: -5px -95px; }
-    to { background-position: -205px -95px; }
+    to { background-position: -225px -115px; }
 }
 /* --- OFFICE OBJECTS --- */
 
