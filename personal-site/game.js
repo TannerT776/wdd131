@@ -19,27 +19,44 @@ checkNearby()
 
 }
 
-document.addEventListener("keydown", (e)=>{
+// 1. Add this NEW listener to stop the animation when you let go of the keys
+document.addEventListener("keyup", () => {
+    player.classList.remove("walking");
+});
 
-if(e.key==="ArrowUp") y-=speed
-if(e.key==="ArrowDown") y+=speed
-if(e.key==="ArrowLeft") x-=speed
-if(e.key==="ArrowRight") x+=speed
+// 2. REPLACE your current keydown listener with this one:
+document.addEventListener("keydown", (e) => {
 
-// boundaries
-const maxX = game.clientWidth-player.clientWidth
-const maxY = game.clientHeight-player.clientHeight
+    // Start the walking animation if an arrow key is pressed
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+        player.classList.add("walking");
+    }
 
-if(x<0)x=0
-if(y<0)y=0
-if(x>maxX)x=maxX
-if(y>maxY)y=maxY
+    if (e.key === "ArrowUp") y -= speed;
+    if (e.key === "ArrowDown") y += speed;
+    
+    if (e.key === "ArrowLeft") {
+        x -= speed;
+        player.style.transform = "scaleX(-1)"; // Flips Dallas to face left
+    }
+    if (e.key === "ArrowRight") {
+        x += speed;
+        player.style.transform = "scaleX(1)";  // Resets Dallas to face right
+    }
 
-movePlayer()
+    // --- YOUR EXISTING BOUNDARY LOGIC ---
+    const maxX = game.clientWidth - player.clientWidth;
+    const maxY = game.clientHeight - player.clientHeight;
 
-if(e.key===" ") checkInteraction()
+    if (x < 0) x = 0;
+    if (y < 0) y = 0;
+    if (x > maxX) x = maxX;
+    if (y > maxY) y = maxY;
 
-})
+    movePlayer();
+
+    if (e.key === " ") checkInteraction();
+});
 
 function isNear(el){
 
