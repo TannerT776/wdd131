@@ -35,14 +35,15 @@ body {
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* We zoom the sheet so the character fills the 64px box */
-    background-size: 320px auto; 
+    /* 1. SHRINK ZOOM: 
+       Lowering this to 240px makes Dallas smaller so his legs fit in the 64px box. */
+    background-size: 240px auto; 
 
-    /* THE PRECISION CROP:
-       -10px (X) slides the image LEFT to hide words on the left.
-       -175px (Y) slides the image UP to hide "8 bit" and words above.
+    /* 2. VERTICAL CROP: 
+       -145px (Y) pushes the "8 bit" text UP and out of the box.
+       -10px (X) centers him.
     */
-    background-position: -10px -175px; 
+    background-position: -10px -145px; 
 
     image-rendering: pixelated; 
     position: absolute; 
@@ -52,10 +53,10 @@ body {
 
 /* The Walking Animation */
 @keyframes walk-cycle {
-    /* Horizontal: Starts at -10px, moves 320px (total -330px)
-       Vertical: MUST stay at -175px exactly so he doesn't jump */
-    from { background-position: -10px -175px; }
-    to { background-position: -330px -175px; }
+    /* Horizontal: Starts at -10px, moves 240px (total -250px)
+       Vertical: MUST stay at -145px so he doesn't jump! */
+    from { background-position: -10px -145px; }
+    to { background-position: -250px -145px; }
 }
 
 /* --- OFFICE OBJECTS --- */
