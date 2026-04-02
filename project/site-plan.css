@@ -1,0 +1,42 @@
+:root {
+    --primary-color: #EE7125;
+    --secondary-color: #1a1a1a;
+    --accent-color: #00ff00;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--primary-color);
+}
+
+h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+section {
+    background: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+ul {
+    list-style-type: square;
+}
