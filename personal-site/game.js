@@ -45,17 +45,29 @@ document.addEventListener("keydown", (e) => {
     }
 
     // Directional Movement
-    if (e.key === "ArrowUp" || e.key === "w") y -= speed;
-    if (e.key === "ArrowDown" || e.key === "s") y += speed;
-    
-    if (e.key === "ArrowLeft" || e.key === "a") {
-        x -= speed;
-        player.style.transform = "scaleX(-1)"; // Face Left
-    }
-    if (e.key === "ArrowRight" || e.key === "d") {
-        x += speed;
-        player.style.transform = "scaleX(1)";  // Face Right
-    }
+if (e.key === "ArrowUp" || e.key === "w") {
+    y -= speed;
+    player.classList.remove("down", "left", "right");
+    player.classList.add("up");
+}
+if (e.key === "ArrowDown" || e.key === "s") {
+    y += speed;
+    player.classList.remove("up", "left", "right");
+    player.classList.add("down");
+}
+
+if (e.key === "ArrowLeft" || e.key === "a") {
+    x -= speed;
+    player.classList.remove("up", "down", "right");
+    player.classList.add("left");
+    player.style.transform = "scaleX(-1)"; // Face Left
+}
+if (e.key === "ArrowRight" || e.key === "d") {
+    x += speed;
+    player.classList.remove("up", "down", "left");
+    player.classList.add("right");
+    player.style.transform = "scaleX(1)";  // Face Right
+}
 
     // --- 4. BOUNDARIES & COLLISION ---
     const maxX = game.clientWidth - player.clientWidth;
