@@ -17,15 +17,19 @@ background: #5c5c5c;
 
 /* player */
 
-#player {
-width: 40px;
-height: 40px;
-background: yellow;
-position: absolute;
-top: 200px;
-left: 320px;
-border-radius: 5px;
-transition: transform .05s;
+.dallas-sprite {
+width: 64px;
+height: 64px;
+background-image: url('dallas_spritesheet.png');
+background-repeat: no-repeat;
+image-rendering: pixelated;
+
+animation: walk-east 0.8s steps(4) infinite;
+}
+
+@keyframes walk-east {
+from { background-position: 0px; }
+to { background-position: -256px; }
 }
 
 /* objects */
