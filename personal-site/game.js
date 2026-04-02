@@ -1,50 +1,52 @@
-const player = document.getElementById("player")
-const game = document.getElementById("game")
-const miniPlayer = document.getElementById("mini-player")
-const interaction = document.getElementById("interaction")
+// Elements
+const player = document.getElementById("player");
+const game = document.getElementById("game");
+const miniPlayer = document.getElementById("mini-player");
+const interaction = document.getElementById("interaction");
 
-let x = 320
-let y = 200
-const speed = 10
+// Game State
+let x = 320;
+let y = 200;
+const speed = 10;
 
-function movePlayer(){
+// Initialize Position
+movePlayer();
 
-player.style.left = x + "px"
-player.style.top = y + "px"
+function movePlayer() {
+    player.style.left = x + "px";
+    player.style.top = y + "px";
 
-miniPlayer.style.left = (x/5) + "px"
-miniPlayer.style.top = (y/5) + "px"
+    // Minimap logic (Calculates ratio based on game vs minimap size)
+    // 700px game / 140px map = 5. So x/5 is correct!
+    miniPlayer.style.left = (x / 5) + "px";
+    miniPlayer.style.top = (y / 5) + "px";
 
-checkNearby()
-
+    checkNearby();
 }
 
-// 1. Add this NEW listener to stop the animation when you let go of the keys
 document.addEventListener("keyup", () => {
     player.classList.remove("walking");
 });
 
-// 2. REPLACE your current keydown listener with this one:
 document.addEventListener("keydown", (e) => {
-
-    // Start the walking animation if an arrow key is pressed
-    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+    // Movement & Animation
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "w", "a", "s", "d"].includes(e.key)) {
         player.classList.add("walking");
     }
 
-    if (e.key === "ArrowUp") y -= speed;
-    if (e.key === "ArrowDown") y += speed;
+    if (e.key === "ArrowUp" || e.key === "w") y -= speed;
+    if (e.key === "ArrowDown" || e.key === "s") y += speed;
     
-    if (e.key === "ArrowLeft") {
+    if (e.key === "ArrowLeft" || e.key === "a") {
         x -= speed;
-        player.style.transform = "scaleX(-1)"; // Flips Dallas to face left
+        player.style.transform = "scaleX(-1)"; 
     }
-    if (e.key === "ArrowRight") {
+    if (e.key === "ArrowRight" || e.key === "d") {
         x += speed;
-        player.style.transform = "scaleX(1)";  // Resets Dallas to face right
+        player.style.transform = "scaleX(1)"; 
     }
 
-    // --- YOUR EXISTING BOUNDARY LOGIC ---
+    // Boundaries
     const maxX = game.clientWidth - player.clientWidth;
     const maxY = game.clientHeight - player.clientHeight;
 
@@ -58,40 +60,41 @@ document.addEventListener("keydown", (e) => {
     if (e.key === " ") checkInteraction();
 });
 
-function isNear(el){
+function isNear(el) {
+    const playerRect = player.getBoundingClientRect();
+    const objRect = el.getBoundingClientRect();
 
-const playerRect=player.getBoundingClientRect()
-const objRect=el.getBoundingClientRect()
-
-return !(
-playerRect.right < objRect.left-20 ||
-playerRect.left > objRect.right+20 ||
-playerRect.bottom < objRect.top-20 ||
-playerRect.top > objRect.bottom+20
-)
-
+    // Small buffer to make interaction feel natural
+    return !(
+        playerRect.right < objRect.left - 25 ||
+        playerRect.left > objRect.right + 25 ||
+        playerRect.bottom < objRect.top - 25 ||
+        playerRect.top > objRect.bottom + 25
+    );
 }
 
-function checkNearby(){
+function checkNearby() {
+    // Check all objects defined in your HTML
+    const computer = document.getElementById("computer");
+    const cabinet = document.getElementById("cabinet");
+    const recipesObj = document.getElementById("recipes");
+    const tracker = document.getElementById("tracker");
 
-if(
-isNear(computer) ||
-isNear(cabinet) ||
-isNear(recipes) ||
-isNear(tracker)
-){
-interaction.style.display="block"
-}else{
-interaction.style.display="none"
+    if (isNear(computer) || isNear(cabinet) || isNear(recipesObj) || isNear(tracker)) {
+        interaction.style.display = "block";
+    } else {
+        interaction.style.display = "none";
+    }
 }
 
-}
+function checkInteraction() {
+    const computer = document.getElementById("computer");
+    const cabinet = document.getElementById("cabinet");
+    const recipesObj = document.getElementById("recipes");
+    const tracker = document.getElementById("tracker");
 
-function checkInteraction(){
-
-if(isNear(computer)) showProjects()
-else if(isNear(cabinet)) showResume()
-else if(isNear(recipes)) showRecipes()
-else if(isNear(tracker)) showBugs()
-
+    if (isNear(computer)) showProjects();
+    else if (isNear(cabinet)) showResume();
+    else if (isNear(recipesObj)) showRecipes();
+    else if (isNear(tracker)) showBugs();
 }
