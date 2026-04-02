@@ -1,41 +1,46 @@
 body {
-font-family: Arial;
-text-align: center;
-background: #222;
-color: white;
+    font-family: 'Courier New', Courier, monospace; /* Changed for a more "hacker/dev" vibe */
+    text-align: center;
+    background: #1a1a1a;
+    color: white;
+    margin: 0;
+    padding: 20px;
 }
 
 #game {
-width: 700px;
-height: 450px;
-margin: auto;
-position: relative;
-border: 3px solid white;
-overflow: hidden;
-background: #5c5c5c;
+    width: 700px;
+    height: 450px;
+    margin: 20px auto;
+    position: relative;
+    border: 4px solid #444;
+    overflow: hidden;
+    background: #333; /* Floor color */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-/* player */
+/* --- THE DALLAS PLAYER --- */
 
-/* The Dallas Character Container */
-.dallas-character {
+/* Changed from .dallas-character to .dallas-sprite to match your HTML */
+.dallas-sprite {
     width: 64px; 
     height: 64px;
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* The Zoom: 4 frames at 64px each = 256px wide */
+    /* Forces the 4-frame strip to fit into a 256px wide space */
     background-size: 256px 64px; 
     
-    /* Keeps the 8-bit look sharp */
+    /* Essential for 8-bit art sharp edges */
     image-rendering: pixelated; 
     
-    /* Position him relative to the game/office container */
     position: absolute; 
     z-index: 10;
+    
+    /* Smoothly flips the character when turning Left/Right */
+    transition: transform 0.1s ease-out;
 }
 
-/* The Walking Animation */
+/* The Walking Animation (Triggered by game.js) */
 .walking {
     animation: walk-cycle 0.8s steps(4) infinite;
 }
@@ -45,66 +50,93 @@ background: #5c5c5c;
     to { background-position: -256px; }
 }
 
-
-/* objects */
+/* --- OFFICE OBJECTS --- */
 
 .object {
-position: absolute;
-font-size: 32px;
+    position: absolute;
+    font-size: 40px; /* Made slightly bigger for easier clicking */
+    z-index: 5; /* Keep furniture behind Dallas */
+    transition: filter 0.3s;
 }
 
-#computer { top: 40px; left: 40px; }
-#cabinet { top: 40px; right: 40px; }
-#recipes { bottom: 40px; left: 40px; }
-#tracker { bottom: 40px; right: 40px; }
+.object:hover {
+    filter: brightness(1.5); /* Visual feedback for interactivity */
+}
 
-/* interaction */
+#computer { top: 60px; left: 80px; }
+#cabinet  { top: 60px; right: 80px; }
+#recipes  { bottom: 80px; left: 80px; }
+#tracker  { bottom: 80px; right: 80px; }
+
+/* --- INTERACTION UI --- */
 
 #interaction {
-position:absolute;
-bottom:10px;
-left:50%;
-transform:translateX(-50%);
-background:black;
-padding:5px 10px;
-border-radius:5px;
-display:none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00; /* Heist Green */
+    padding: 8px 15px;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    display: none;
+    font-weight: bold;
+    z-index: 50;
 }
 
-/* minimap */
+/* --- MINIMAP --- */
 
 #minimap {
-position:absolute;
-top:10px;
-right:10px;
-width:140px;
-height:90px;
-background:#111;
-border:2px solid white;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 140px;
+    height: 90px;
+    background: #000;
+    border: 2px solid #555;
+    opacity: 0.8;
+    z-index: 100;
 }
 
 #mini-player {
-width:6px;
-height:6px;
-background:yellow;
-position:absolute;
+    width: 8px;
+    height: 8px;
+    background: #00ff00; /* Green dot matches Dallas's mask theme */
+    position: absolute;
+    border-radius: 50%;
 }
 
-/* modal */
+/* --- MODAL --- */
 
 #modal {
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:white;
-color:black;
-padding:20px;
-border-radius:10px;
-width:350px;
-z-index:100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    color: #222;
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    z-index: 1000;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
 }
 
 .hidden {
-display:none;
+    display: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #222;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #444;
 }
