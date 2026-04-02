@@ -1,19 +1,18 @@
-const player = document.getElementById("player")
+const miniPlayer = document.getElementById("mini-player")
 
-let x = 280
-let y = 180
-
-document.addEventListener("keydown", (e) => {
-
-if(e.key === "ArrowUp") y -= 10
-if(e.key === "ArrowDown") y += 10
-if(e.key === "ArrowLeft") x -= 10
-if(e.key === "ArrowRight") x += 10
+function movePlayer(){
 
 player.style.left = x + "px"
 player.style.top = y + "px"
 
-})
+// minimap position
+const miniX = x / 5
+const miniY = y / 5
+
+miniPlayer.style.left = miniX + "px"
+miniPlayer.style.top = miniY + "px"
+
+}
 
 document.getElementById("computer")
 .addEventListener("click", showProjects)
