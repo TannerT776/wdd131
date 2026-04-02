@@ -35,20 +35,42 @@ body {
     background-image: url('dallas_spritesheet.png');
     background-repeat: no-repeat;
     
-    /* 1. SHRINK ZOOM: 
-       Lowering this to 240px makes Dallas smaller so his legs fit in the 64px box. */
-    background-size: 240px auto; 
+    /* 1. THE ZOOM (Horizontal Scale)
+       By setting this to 256px, we fit 4 frames of 64px perfectly. 
+       If he looks too small, we can bump this to 280px later. */
+    background-size: 256px auto; 
 
-    /* 2. VERTICAL CROP: 
-       -145px (Y) pushes the "8 bit" text UP and out of the box.
-       -10px (X) centers him.
-    */
-    background-position: -10px -145px; 
+    /* 2. THE CROP (Vertical & Horizontal Position)
+       -10px (X) centers his body in the box.
+       -160px (Y) slides the image UP to hide the "8 bit" text. 
+       Adjust this -160px if you still see the letters! */
+    background-position: -10px -160px; 
 
     image-rendering: pixelated; 
     position: absolute; 
     z-index: 10;
+    
+    /* This makes the flip (scaleX) look smooth when turning */
     transition: transform 0.1s ease-out;
+}
+
+/* --- THE WALKING ANIMATION --- */
+
+@keyframes walk-cycle {
+    /* 'from' must match the background-position above exactly */
+    from { 
+        background-position: -10px -160px; 
+    }
+    /* 'to' moves the strip left by the total width (256px) 
+       -10 starting + -256 move = -266px total */
+    to { 
+        background-position: -266px -160px; 
+    }
+}
+
+.walking {
+    /* 'steps(4)' makes the frames jump instead of sliding */
+    animation: walk-cycle 0.8s steps(4) infinite;
 }
 
 /* The Walking Animation */
