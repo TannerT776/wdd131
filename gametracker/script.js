@@ -21,13 +21,15 @@ image: "images/minecraft.jpg"
 
 function displayGames(gameList) {
 const container = document.querySelector("#games");
+if(!container) return;
+
 container.innerHTML = "";
 
 gameList.forEach(game => {
 container.innerHTML += `
 <div class="card">
 <h3>${game.title}</h3>
-<img src="${game.image}">
+<img src="${game.image}" alt="${game.title}">
 <p>Genre: ${game.genre}</p>
 <p>Rating: ${game.rating}</p>
 </div>
