@@ -21,24 +21,30 @@ image: "images/tekken.jpg"
 
 function displayGames(gameList) {
 const container = document.querySelector("#games");
-if(!container) return;
+if (!container) return;
 
 container.innerHTML = "";
 
 gameList.forEach(game => {
-container.innerHTML += `
-<div class="card">
+const card = document.createElement("div");
+card.classList.add("card");
+
+card.innerHTML = `
 <h3>${game.title}</h3>
 <img src="${game.image}" alt="${game.title}">
 <p>Genre: ${game.genre}</p>
 <p>Rating: ${game.rating}</p>
-</div>
 `;
+
+container.appendChild(card);
 });
 }
 
 function filterGames() {
-const genre = document.querySelector("#genre").value;
+const select = document.querySelector("#genre");
+if (!select) return;
+
+const genre = select.value;
 
 if (genre === "all") {
 displayGames(games);
@@ -48,6 +54,11 @@ displayGames(filtered);
 }
 }
 
-document.querySelector("#genre")?.addEventListener("change", filterGames);
-
+document.addEventListener("DOMContentLoaded", () => {
 displayGames(games);
+
+const select = document.querySelector("#genre");
+if (select) {
+select.addEventListener("change", filterGames);
+}
+});
