@@ -1,0 +1,31 @@
+body {
+font-family: Arial;
+margin: 0;
+}
+
+header {
+background: black;
+color: white;
+padding: 1rem;
+}
+
+nav a {
+color: white;
+margin-right: 10px;
+}
+
+#games {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+gap: 1rem;
+padding: 1rem;
+}
+
+.card {
+border: 1px solid #ccc;
+padding: 1rem;
+}
+
+img {
+width: 100%;
+}
