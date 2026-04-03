@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Tracker</title>
+<title>Games</title>
 <link rel="stylesheet" href="styles/style.css">
 <script defer src="scripts/script.js"></script>
 </head>
@@ -11,22 +11,32 @@
 <body>
 
 <header>
-<h1>Tanner's Game Tracker</h1>
+<h1>Game List</h1>
+
 <nav>
 <a href="index.html">Home</a>
 <a href="games.html">Games</a>
 </nav>
+
 </header>
 
 <main>
-<h2>Welcome</h2>
-<p>This site tracks my favorite games and lets you filter them by genre.</p>
 
-<img src="images/payday2.jpg" alt="Payday 2">
+<h2>Filter by Genre</h2>
+
+<select id="genre">
+<option value="all">All</option>
+<option value="Sandbox">Sandbox</option>
+<option value="Adventure">Adventure</option>
+<option value="Fighting">Fighting</option>
+</select>
+
+<div id="games"></div>
+
 </main>
 
 <footer>
-<p>WDD131 Personal Project</p>
+<p>Game Tracker</p>
 </footer>
 
 </body>
