@@ -1,21 +1,21 @@
 const games = [
 {
-title: "Payday 2",
-genre: "Action",
-rating: 5,
-image: "images/payday2.jpg"
-},
-{
-title: "Skyrim",
-genre: "RPG",
-rating: 5,
-image: "images/skyrim.jpg"
-},
-{
 title: "Minecraft",
-genre: "RPG",
-rating: 4,
+genre: "Sandbox",
+rating: 5,
 image: "images/minecraft.jpg"
+},
+{
+title: "The Legend of Zelda",
+genre: "Adventure",
+rating: 5,
+image: "images/zelda.jpg"
+},
+{
+title: "Tekken 8",
+genre: "Fighting",
+rating: 4,
+image: "images/tekken.jpg"
 }
 ];
 
